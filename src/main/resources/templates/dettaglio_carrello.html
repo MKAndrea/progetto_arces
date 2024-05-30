@@ -10,7 +10,7 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>shop</th>
+                <th>carrello</th>
                 <th>Prodotto</th>
                 <th>Quantita</th>
                 <th>Delete</th>
@@ -19,25 +19,25 @@
             </tr>
         </thead>
         <tbody>
-            <tr th:each="carrello : ${carrello}">
-                <td th:text="${carrello.id}"></td>
-                <td th:text="${carrello.idshops}"></td>
-                <td th:text="${carrello.idprodotto}"></td>
-                <td th:text="${carrello.quantita}"></td>
+            <tr th:each="dettaglio_carrello : ${dettaglio_carrello}">
+                <td th:text="${dettaglio_carrello.id}"></td>
+                <td th:text="${dettaglio_carrello.idcarrello}"></td>
+                <td th:text="${dettaglio_carrello.idProdotto}"></td>
+                <td th:text="${dettaglio_carrello.Quantita}"></td>
                  <td>
-                 <form th:action="@{'/carrello/delete/' +${carrello.id}}" method="post" style="display: inline;">
+                 <form th:action="@{'/dettaglio_carrello/delete/' +${dettaglio_carrello.id}}" method="post" style="display: inline;">
                  <input type="hidden" name="${_method}" value="delete" />
                  <button type="submit" >Delete</button>
                  </form>
                   </td>
 					<td>
 					<button>
-					<a th:href="@{'/carrello/update/' +${carrello.id}}" style="display: inline;">Update</a>
+					<a th:href="@{'/dettaglio_carrello/update/' +${dettaglio_carrello.id}}" style="display: inline;">Update</a>
 					 </button>
 					 </td>
 					 <td>
 						<button>
-						 <a th:href="@{'/carrello/insert'}" style="display: inline;">Insert </a>
+						 <a th:href="@{'/dettaglio_carrello/insert'}" style="display: inline;">Insert </a>
 					</button>
 					  </td>
             </tr>
