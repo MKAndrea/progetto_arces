@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Elenco Utenti</title>
+</head>
+<body>
+    <h1>Elenco Utenti</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>Username</th>
+                <th>Cellulare</th>
+                <th>Indirizzo</th>
+                <th>Età</th>
+                <th>Delete</th>
+                <th>Update</th>
+                <th>Insert</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="utente : ${utenti}">
+                <td th:text="${utente.id}"></td>
+                <td th:text="${utente.nome}"></td>
+                <td th:text="${utente.cognome}"></td>
+                <td th:text="${utente.username}"></td>
+                <td th:text="${utente.cellulare}"></td>
+                <td th:text="${utente.indirizzo}"></td>
+                <td th:text="${utente.eta}"></td>
+                 <td>
+                 <form th:action="@{'/utenti/delete/' +${utente.id}}" method="post" style="display: inline;">
+                 <input type="hidden" name="${_method}" value="delete" />
+                   <button type="submit" >Delete</button>
+                    </form>
+                    </td>
+                    <td>
+					<button>
+					<a th:href="@{'/utenti/update/' +${utente.id}}" style="display: inline;">Update</a>
+					 </button>
+					 </td>
+					 <td>
+						<button>
+						 <a th:href="@{'/utenti/insert'}" style="display: inline;">Insert </a>
+					</button>
+					  </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

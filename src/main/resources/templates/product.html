@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Elenco Utenti</title>
+</head>
+<body>
+    <h1>Elenco Utenti</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NomeProdotto</th>
+                <th>prezzo</th>
+				<th>shop</th>
+                <th>Delete</th>
+				<th>Update</th>
+				<th>Insert</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="product : ${products}">
+                <td th:text="${product.id}"></td>
+                <td th:text="${product.nome_prodotto}"></td>
+                <td th:text="${product.prezzo}"></td>
+				<td th:text="${product.idshop}"></td>
+                 <td>
+                 <form th:action="@{'/products/delete/' +${product.id}}" method="post" style="display: inline;">
+                 <input type="hidden" name="${_method}" value="delete" />
+                 <button type="submit" >Delete</button>
+                 </form>
+                  </td>
+					<td>
+						<button>
+					  <a th:href="@{'/products/update/' +${product.id}}" style="display: inline;"
+					   >Update</a>
+					   </button>
+					 </td>
+					 <td>
+						<button>
+						 <a th:href="@{'/products/insert'}" style="display: inline;"
+					 	>Insert </a>
+					</button>
+					  </td>
+					 </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

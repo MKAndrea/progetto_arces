@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Elenco Shops</title>
+</head>
+<body>
+    <h1>Elenco Shops</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Denominazione</th>
+                <th>Indirizzo</th>
+                <th>Delete</th>
+				<th>Update</th>
+				<th>Insert</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="shop : ${shops}">
+                <td th:text="${shop.id}"></td>
+                <td th:text="${shop.denominazione}"></td>
+                <td th:text="${shop.indirizzo}"></td>
+                 <td>
+                 <form th:action="@{'/shops/delete/' +${shop.id}}" method="post" style="display: inline;">
+                 <input type="hidden" name="${_method}" value="delete" />
+                 <button type="submit" >Delete</button>
+                 </form>
+                  </td>
+					<td>
+					<button>
+					<a th:href="@{'/shops/update/' +${shop.id}}" style="display: inline;">Update</a>
+					 </button>
+					 </td>
+					 <td>
+						<button>
+						 <a th:href="@{'/shops/insert'}" style="display: inline;">Insert </a>
+					</button>
+					  </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

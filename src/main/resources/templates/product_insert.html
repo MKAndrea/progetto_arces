@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<h1>Utenti</h1>
+	<form th:action="@{'/products/insert/inserisci'}" method="post">
+        
+        <label for="nomeProdotto">NomeProdotto:</label>
+        <input type="text" name="nomeProdotto" required><br><br>
+        
+         <label for="prezzo">Prezzo:</label>
+        <input type="text" name="prezzo" required><br><br>
+		
+		<label for="shop">Shop:</label>
+		   <input type="text" name="shop" required><br><br>
+        
+        <button type="submit">Salva</button>
+    </form>
+    </form>
+</body>
+</html>
