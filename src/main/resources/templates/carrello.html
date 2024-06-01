@@ -1,0 +1,48 @@
+<body>
+    <h1>Carrello</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>utente</th>
+                <th>shop</th>
+				<th>data creazione</th>
+				<th>data acquisto</th>
+				<th>codice pagamento</th>
+                <th>Delete</th>
+				<th>Update</th>
+				<th>Insert</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="carrello : ${carrello}">
+                <td th:text="${carrello.id}"></td>
+                <td th:text="${carrello.idutente}"></td>
+                <td th:text="${carrello.idshops}"></td>
+                  <td th:text="${carrello.data_creazione}"></td>
+				<td th:text="${carrello.data_acquisto}"></td>
+				  <td th:text="${carrello.payment_code}"></td>
+                 <td>
+                 <form th:action="@{'/carrello/delete/' +${carrello.id}}" method="post" style="display: inline;">
+                 <input type="hidden" name="${_method}" value="delete" />
+                 <button type="submit" >Delete</button>
+                 </form>
+                  </td>
+					<td>
+						<button>
+					  <a th:href="@{'/carrello/update/' +${carrello.id}}" style="display: inline;"
+					   >Update</a>
+					   </button>
+					 </td>
+					 <td>
+						<button>
+						 <a th:href="@{'/carrello/insert'}" style="display: inline;"
+					 	>Insert </a>
+					</button>
+					  </td>
+					 </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

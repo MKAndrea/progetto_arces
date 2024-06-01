@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Carrello</title>
+</head>
+<body>
+	<h1>Carrello</h1>
+	<form th:action="@{'/carrello/insert/inserisci'}" method="post">
+        
+      		 <label for="idutente">utente:</label>
+		       <input type="text" name="idutente" required><br><br>
+		       
+		        <label for="idshops">shop:</label>
+		       <input type="text" name="idshops" required><br><br>
+			
+			<label for="data_creazione">data creazione:</label>
+			   <input type="text" name="data_creazione" required><br><br>
+			   
+			   <label for="data_acquisto">data acquisto:</label>
+			   <input type="text" name="data_acquisto" required><br><br>
+			   
+			   <label for="payment_code">codice pagamento:</label>
+			   <input type="text" name="payment_code" required><br><br>
+        
+        <button type="submit">Salva</button>
+    </form>
+</body>
+</html>
